@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import '@pixi/graphics-extras';
 
 const canvas = document.getElementById('canvas');
 
@@ -36,6 +37,21 @@ circle
   .drawCircle(400, 200, 60)
   .endFill()
 
+const text = new PIXI.Text('Hello, World', {
+  fontFamily: 'Montserrat',
+  fontSize: 48,
+  fill: 'deepskyblue',
+  letterSpacing: 3,
+  stroke: '#ffffff',
+  strokeThickness: 4,
+  dropShadow: true,
+  dropShadowDistance: 10,
+  dropShadowAngle: Math.PI / 2,
+  dropShadowBlur: 4,
+  dropShadowColor: '#000000',
+});
+
 app.stage.addChild(rectangle);
 app.stage.addChild(poly);
 app.stage.addChild(circle);
+app.stage.addChild(text);
