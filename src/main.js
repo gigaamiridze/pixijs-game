@@ -17,7 +17,6 @@ rectangle
   .lineStyle(4, 0xFFEA00, 1)
   .drawRect(200, 200, 100, 120)
   .endFill()
-app.stage.addChild(rectangle);
 
 const poly = new PIXI.Graphics();
 poly
@@ -30,4 +29,13 @@ poly
       400, 400
   )
   .endFill()
+
+const circle = new PIXI.Graphics();
+circle
+  .beginFill(0xAA33BB)
+  .drawCircle(400, 200, 60)
+  .endFill()
+
+app.stage.addChild(rectangle);
 app.stage.addChild(poly);
+app.stage.addChild(circle);
