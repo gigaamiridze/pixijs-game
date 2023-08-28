@@ -55,3 +55,15 @@ app.stage.addChild(rectangle);
 app.stage.addChild(poly);
 app.stage.addChild(circle);
 app.stage.addChild(text);
+
+app.ticker.add(delta => loop(delta));
+
+const loop = (delta) => {
+  const rect = new PIXI.Graphics();
+  rect
+      .beginFill(0xFFFFFF)
+      .drawRect(Math.random() * app.screen.width, Math.random() * app.screen.height, 10, 10)
+      .endFill()
+
+  app.stage.addChild(rect);
+}
