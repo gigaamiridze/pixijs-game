@@ -32,6 +32,17 @@ const loadImage = async () => {
 
 loadImage();
 
+const cloudsTexture = PIXI.Texture.from('./images/clouds.png');
+const cloudsSprite = new PIXI.TilingSprite(cloudsTexture, app.screen.width, app.screen.height);
+
+cloudsSprite.tileScale.set(0.5);
+
+app.ticker.add(() => {
+  cloudsSprite.tilePosition.x += 1;
+});
+
+app.stage.addChild(cloudsSprite);
+
 // const loadImage = async () => {
 //   await PIXI.Assets.load('./images/drags.json');
 //   const dragTexture = PIXI.Texture.from('drag11.png');
