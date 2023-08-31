@@ -113,6 +113,19 @@ char4Sprite.position.set(300, 300);
 
 container.addChild(char2Sprite);
 container.addChild(char3Sprite);
-container.addChild(char4Sprite);
 
 app.stage.addChild(container);
+
+const loader = new PIXI.Loader();
+
+loader
+  .add('image', './images/char5.png')
+  .load((loader, resources) => {
+    const image = PIXI.Sprite.from(resources.image.texture);
+    image.y = 300;
+    app.stage.addChild(image);
+  });
+
+loader.onComplete(() => console.log('All assets loaded!'));
+loader.onProgress(() => console.log('Assets loading...'));
+loader.onError(() => console.log('Error loading assets'));
