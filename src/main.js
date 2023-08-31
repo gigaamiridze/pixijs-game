@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import { Howl } from 'howler';
 
 const canvas = document.getElementById('canvas');
 
@@ -35,13 +36,22 @@ loadImage();
 const cloudsTexture = PIXI.Texture.from('./images/clouds.png');
 const cloudsSprite = new PIXI.TilingSprite(cloudsTexture, app.screen.width, app.screen.height);
 
-cloudsSprite.tileScale.set(0.5);
+cloudsSprite.tileScale.set(0.4);
 
 app.ticker.add(() => {
   cloudsSprite.tilePosition.x += 1;
 });
 
 app.stage.addChild(cloudsSprite);
+
+const sound = new Howl({
+  src: ['./sounds/pelimusaa.wav'],
+  autoplay: true,
+  loop: true,
+  volume: 0.5,
+});
+
+sound.play();
 
 // const loadImage = async () => {
 //   await PIXI.Assets.load('./images/drags.json');
