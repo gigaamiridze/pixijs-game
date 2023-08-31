@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import '@pixi/graphics-extras';
 
 const canvas = document.getElementById('canvas');
 
@@ -69,4 +68,13 @@ app.stage.addChild(text);
 // }
 
 const char1Sprite = PIXI.Sprite.from('./images/char1.png');
+char1Sprite.anchor.set(0.5, 0.5);
+char1Sprite.x = app.view.width / 2;
+char1Sprite.y = app.view.height / 2;
 app.stage.addChild(char1Sprite);
+
+app.ticker.add(delta => loop(delta));
+
+const loop = () => {
+  char1Sprite.rotation += 0.01;
+}
