@@ -79,7 +79,7 @@ app.stage.addChild(char1Sprite);
 //   char1Sprite.rotation += 0.01;
 // }
 
-char1Sprite.interactive = true;
+char1Sprite.eventMode = 'dynamic';
 char1Sprite.buttonMode = true;
 
 char1Sprite.on('pointerdown', () => {
@@ -99,3 +99,20 @@ document.addEventListener('keydown', (e) => {
       return char1Sprite.y += 10;
   }
 })
+
+const container = new PIXI.Container();
+
+const char2Sprite = PIXI.Sprite.from('./images/char2.png');
+char2Sprite.position.set(100, 100);
+
+const char3Sprite = PIXI.Sprite.from('./images/char3.png');
+char3Sprite.position.set(200, 200);
+
+const char4Sprite = PIXI.Sprite.from('./images/char4.png');
+char4Sprite.position.set(300, 300);
+
+container.addChild(char2Sprite);
+container.addChild(char3Sprite);
+container.addChild(char4Sprite);
+
+app.stage.addChild(container);
