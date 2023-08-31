@@ -7,6 +7,7 @@ const app = new PIXI.Application({
   width: window.innerWidth,
   height: window.innerHeight,
   backgroundColor: 0x23395D,
+  transparent: false,
   antialias: true,
 });
 
@@ -27,6 +28,8 @@ const loadImage = async () => {
   drag.position.set(app.screen.width / 2, app.screen.height / 2);
   drag.play();
   drag.animationSpeed = 0.1;
+  const blurFilter = new PIXI.filters.BlurFilter(1);
+  drag.filters = [blurFilter];
 
   app.stage.addChild(drag);
 }
@@ -46,7 +49,6 @@ app.stage.addChild(cloudsSprite);
 
 const sound = new Howl({
   src: ['./sounds/pelimusaa.wav'],
-  autoplay: true,
   loop: true,
   volume: 0.5,
 });
