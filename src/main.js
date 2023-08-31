@@ -13,17 +13,38 @@ canvas.appendChild(app.view);
 
 const loadImage = async () => {
   await PIXI.Assets.load('./images/drags.json');
-  const dragTexture = PIXI.Texture.from('drag11.png');
-  const dragSprite = new PIXI.Sprite(dragTexture);
 
-  dragSprite.anchor.set(0.5);
-  dragSprite.scale.set(1.3);
-  dragSprite.position.set(app.screen.width / 2, app.screen.height / 2);
+  const textures = [];
+  for (let i = 1; i < 13; i++) {
+    const texture = PIXI.Texture.from(`drag${i}.png`);
+    textures.push(texture);
+  }
 
-  app.stage.addChild(dragSprite);
+  const drag = new PIXI.AnimatedSprite(textures);
+  drag.anchor.set(0.5);
+  drag.scale.set(1.3);
+  drag.position.set(app.screen.width / 2, app.screen.height / 2);
+  drag.play();
+  drag.animationSpeed = 0.1;
+
+  app.stage.addChild(drag);
 }
 
 loadImage();
+
+// const loadImage = async () => {
+//   await PIXI.Assets.load('./images/drags.json');
+//   const dragTexture = PIXI.Texture.from('drag11.png');
+//   const dragSprite = new PIXI.Sprite(dragTexture);
+//
+//   dragSprite.anchor.set(0.5);
+//   dragSprite.scale.set(1.3);
+//   dragSprite.position.set(app.screen.width / 2, app.screen.height / 2);
+//
+//   app.stage.addChild(dragSprite);
+// }
+//
+// loadImage();
 
 // const rectangle = new PIXI.Graphics();
 // rectangle
