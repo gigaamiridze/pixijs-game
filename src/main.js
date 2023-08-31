@@ -116,16 +116,11 @@ container.addChild(char3Sprite);
 
 app.stage.addChild(container);
 
-const loader = new PIXI.Loader();
+const init = async () => {
+  const texture = await PIXI.Assets.load('./images/char5.png');
+  const image = PIXI.Sprite.from(texture);
+  image.y = 300;
+  app.stage.addChild(image);
+}
 
-loader
-  .add('image', './images/char5.png')
-  .load((loader, resources) => {
-    const image = PIXI.Sprite.from(resources.image.texture);
-    image.y = 300;
-    app.stage.addChild(image);
-  });
-
-loader.onComplete(() => console.log('All assets loaded!'));
-loader.onProgress(() => console.log('Assets loading...'));
-loader.onError(() => console.log('Error loading assets'));
+init();
