@@ -86,3 +86,16 @@ char1Sprite.on('pointerdown', () => {
   char1Sprite.scale.x += 0.1;
   char1Sprite.scale.y += 0.1;
 });
+
+document.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case 'ArrowRight':
+      return char1Sprite.x += 10;
+    case 'ArrowLeft':
+      return char1Sprite.x -= 10;
+    case 'ArrowUp':
+      return char1Sprite.y -= 10;
+    case 'ArrowDown':
+      return char1Sprite.y += 10;
+  }
+})
