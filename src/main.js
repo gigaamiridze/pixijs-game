@@ -73,8 +73,16 @@ char1Sprite.x = app.view.width / 2;
 char1Sprite.y = app.view.height / 2;
 app.stage.addChild(char1Sprite);
 
-app.ticker.add(delta => loop(delta));
+// app.ticker.add(delta => loop(delta));
+//
+// const loop = () => {
+//   char1Sprite.rotation += 0.01;
+// }
 
-const loop = () => {
-  char1Sprite.rotation += 0.01;
-}
+char1Sprite.interactive = true;
+char1Sprite.buttonMode = true;
+
+char1Sprite.on('pointerdown', () => {
+  char1Sprite.scale.x += 0.1;
+  char1Sprite.scale.y += 0.1;
+});
